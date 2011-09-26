@@ -1,0 +1,31 @@
+<h1>Detalhes da Tarefa</h1>
+ 
+<p id="notice"><%= notice %></p>
+ 
+<p>
+  <b>Descricao:</b>
+  <%= @task.description %>
+</p>
+ 
+<p>
+  <b>Status:</b>
+  <%= @task.status %>
+</p>
+ 
+<p>
+  <b>Autor:</b>
+  <%= @task.author.name %>
+</p>
+ 
+<p>
+  <b>Categoria:</b>
+  <%= @task.category.name %>
+</p>
+ 
+<p>
+  <b>Data Criacao:</b>
+  <%= @task.created_at.strftime("%d/%m/%Y - %H:%M") %>
+</p>
+ 
+<%= link_to 'Editar', edit_task_path(@task) %> |
+<%= link_to 'Fechar', tasks_path %>

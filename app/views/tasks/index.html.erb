@@ -1,0 +1,40 @@
+<h1>Listando tarefas</h1>
+ 
+<p>
+   <%= link_to 'Nova Tarefa', new_task_path %> |
+   <%= link_to 'Novo Autor', new_author_path %> |
+   <%= link_to 'Nova Categoria', new_category_path %>
+</p>
+<table>
+  <tr>
+    <th>Descricao</th>
+    <th>Status</th>
+    <th>Autor</th>
+    <th>Categoria</th>
+    <th>Data Criacao</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.description %></td>
+    <td><%= task.status %></td>
+    <td><%= task.author.name %></td>
+    <td><%= task.category.name %></td>
+    <td><%= task.created_at.strftime("%d/%m/%Y") %></td>
+    <td><%= link_to 'Exibir', task %></td>
+    <td><%= link_to 'Editar', edit_task_path(task) %></td>
+    <td><%= link_to 'Deletar', task, :confirm => 'Confirma Exclusao?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+ 
+<p>
+   <%= link_to 'Nova Tarefa', new_task_path %> |
+   <%= link_to 'Novo Autor', new_author_path %> |
+   <%= link_to 'Nova Categoria', new_category_path %>
+</p>
