@@ -1,4 +1,10 @@
 Exemplo do tutorial: http://ruby-br.org/?p=2194
 
+A ideia é tunar esse exemplo com os seguintes recursos:
+ - Controle de usuários
+ - Gráficos por status (Pendente, em andamento e concluído)
+ - Exportação das tarefas para: PDF, Excel e txt
+ 
+
 
 
