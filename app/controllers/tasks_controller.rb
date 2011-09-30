@@ -1,5 +1,5 @@
-class TasksController < ApplicationController
-  before_filter :autenticacao, :except => [:index, :show] # linha adicionada
+class TasksController < ApplicationController  
+  before_filter :authenticate_user!, :except => [:index, :show]
   def index
     @tasks = Task.order("status DESC")
     respond_to do |format|

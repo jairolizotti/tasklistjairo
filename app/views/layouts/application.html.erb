@@ -24,6 +24,12 @@ Released   : 20100529
 				<h2><%= link_to 'Central de Tarefas', tasks_path %></h2>
 				</br>
 				<p>Lista de tarefas feita com Rails</p>
+    <% if user_signed_in? %>
+      Olá <%= current_user.name %> | 
+      <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Entrar", new_user_session_path %>       
+    <% end %>
 			</div>
 			<div id="menu">
 				<ul>
@@ -41,11 +47,15 @@ Released   : 20100529
 			<div id="page-bgbtm">
 			<%= yield %>
 				<div style="clear: both;"> </div>
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+				
 			</div>
 		</div>
 	</div>
 	<!-- end #page -->
 </div>
+
 </body>
 </html>
 
