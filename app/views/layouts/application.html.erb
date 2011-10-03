@@ -31,13 +31,15 @@ Released   : 20100529
     <% else %>
       <%= link_to "Entrar", new_user_session_path %>       
     <% end %>
-			</div>
+			</div>			
 			<div id="menu">
 				<ul>
-					<li class="current_page_item"><%= link_to 'Index', tasks_path %></li>
+					<% if user_signed_in? %>
+					<li class="current_page_item"><%= link_to 'Index', tasks_path %></li>					
 					<li><%= link_to 'Tasks', tasks_path %></li>
 					<li><%= link_to 'Categories', categories_path %></li>
 					<li><%= link_to 'Authors', authors_path %></li>
+					<% end %>
 				</ul>
 			</div>
 		</div>
@@ -46,7 +48,9 @@ Released   : 20100529
 	<div id="page">
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
-			<%= yield %>
+			
+			<%= yield %>			
+			
 				<div style="clear: both;"> </div>
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>
