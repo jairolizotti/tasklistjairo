@@ -3,13 +3,13 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :name %><br />
+  <div>Nome<br />
   <%= f.text_field :name %></div>
 
-  <div><%= f.label :email %><br />
+  <div>E-Mail<br />
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+  <div>Senha <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password %></div>
 
   <div><%= f.label :password_confirmation %><br />
@@ -25,4 +25,4 @@
 
 <p>Unhappy? <%= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
 
-<%= link_to "Back", :back %>
+<%= link_to "Voltar", :back %>

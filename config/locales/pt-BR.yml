@@ -225,7 +225,7 @@
   activerecord:
     models:
       classroom: "Turma"
-      registration: "Matrícula"
+      registration: "Matrícula"	  
     attributes:
       classroom:
         room: "Sala"
@@ -235,7 +235,7 @@
         student_id: "Aluno"
         classroom: "Turma"
         classroom_id: "Turma"
-        paid: "Pago"
+        paid: "Pago"	  	  
     errors:
       template:
         header:
