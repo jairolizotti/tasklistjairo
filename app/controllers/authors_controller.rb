@@ -2,8 +2,8 @@ class AuthorsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   # GET /authors
   # GET /authors.json
-  def index
-    @authors = Author.all
+  def index	
+	@authors = Author.where(:user_id => current_user.id ).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,11 +41,12 @@ class AuthorsController < ApplicationController
   # POST /authors
   # POST /authors.json
   def create
-    @author = Author.new(params[:author])
-
+    @author = Author.new(params[:author])		
+	@author.user_id = current_user.id
+	
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
+        format.html { redirect_to @author, notice: 'Autor criado com sucesso.' }
         format.json { render json: @author, status: :created, location: @author }
       else
         format.html { render action: "new" }
@@ -58,10 +59,11 @@ class AuthorsController < ApplicationController
   # PUT /authors/1.json
   def update
     @author = Author.find(params[:id])
-
+    @author.user_id = current_user.id
+	
     respond_to do |format|
       if @author.update_attributes(params[:author])
-        format.html { redirect_to @author, notice: 'Author was successfully updated.' }
+        format.html { redirect_to @author, notice: 'Autor atualizado com sucesso.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

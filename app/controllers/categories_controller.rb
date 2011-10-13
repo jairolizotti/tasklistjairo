@@ -3,7 +3,8 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    #@categories = Category.all
+	@categories = Category.where(:user_id => current_user.id ).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,10 +43,11 @@ class CategoriesController < ApplicationController
   # POST /categories.json
   def create
     @category = Category.new(params[:category])
+	@category.user_id = current_user.id
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to @category, notice: 'Categoria criada com sucesso.' }
         format.json { render json: @category, status: :created, location: @category }
       else
         format.html { render action: "new" }
@@ -58,10 +60,10 @@ class CategoriesController < ApplicationController
   # PUT /categories/1.json
   def update
     @category = Category.find(params[:id])
-
+    @category.user_id = current_user.id
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        format.html { redirect_to @category, notice: 'Categoria alterada com sucesso.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

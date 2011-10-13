@@ -1,7 +1,10 @@
 class TasksController < ApplicationController  
   before_filter :authenticate_user!, :except => [:index, :show]
   def index
-    @tasks = Task.order("status DESC")
+    #@tasks = Task.order("status DESC")
+	if  user_signed_in? 
+	  @tasks = Task.where(:user_id => current_user.id ).all
+	end  
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @tasks }
@@ -18,8 +21,10 @@ class TasksController < ApplicationController
  
   def new
     @task = Task.new
-    @authors = Author.all
-    @categories = Category.all
+    #@authors = Author.all
+	@authors = Author.where(:user_id => current_user.id ).all
+    #@categories = Category.all
+	@categories = Category.where(:user_id => current_user.id ).all
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @task }
@@ -34,7 +39,7 @@ class TasksController < ApplicationController
  
   def create
     @task = Task.new(params[:task])
-	
+	@task.user_id = current_user.id
     respond_to do |format|
       if @task.save
         format.html { redirect_to(@task, :notice => 'Tarefa criada com sucesso.') }
@@ -48,6 +53,7 @@ class TasksController < ApplicationController
  
   def update
     @task = Task.find(params[:id])
+	@task.user_id = current_user.id
  
     respond_to do |format|
       if @task.update_attributes(params[:task])

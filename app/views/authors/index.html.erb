@@ -4,13 +4,13 @@
   <tr>
     <th>Nome</th>
     <th></th>
-    <th></th>
-    <th></th>
+    <th></th>	    
+	<th></th>
   </tr>
 
 <% @authors.each do |author| %>
   <tr>
-    <td><%= author.name %></td>
+    <td><%= author.name %></td>		
     <td><%= link_to 'Exibir', author %></td>
     <td><%= link_to 'Editar', edit_author_path(author) %></td>
     <td><%= link_to 'Deletar', author, confirm: 'Confirma exclusao?', method: :delete %></td>

@@ -21,7 +21,9 @@
   </div>
   <div class="field">
     <%= f.label :author %><br />
-    <%= f.select :author_id, @authors.collect { |a| [ a.name, a.id ] }  %>
+    
+	<%= f.select :author_id, @authors.collect { |a| [ a.name, a.id ] }  %>
+	
   </div>
   <div class="field">
     <%= f.label :category %><br />

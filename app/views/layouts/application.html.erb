@@ -13,7 +13,7 @@ Released   : 20100529
 <meta name="keywords" content="" >
 <meta name="description" content="" >
 <meta http-equiv="content-type" content="text/html; charset=utf-8" >
-<title>Task Central - RubyBrasil</title>
+<title>Central de Tarefas</title>
 <%= stylesheet_link_tag  "application.css" %>
 <%= javascript_include_tag "application" %>
 </head>
@@ -24,7 +24,7 @@ Released   : 20100529
 			<div id="logo">
 				<h2><%= link_to 'Central de Tarefas', tasks_path %></h2>
 				</br>
-				<p>Lista de tarefas feita com Rails</p>
+				<p>Lista de tarefas feita com Ruby on Rails</p>
     <% if user_signed_in? %>
       Olá <%= current_user.name %> , 
       <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
@@ -36,9 +36,9 @@ Released   : 20100529
 				<ul>
 					<% if user_signed_in? %>
 					<li class="current_page_item"><%= link_to 'Index', tasks_path %></li>					
-					<li><%= link_to 'Tasks', tasks_path %></li>
-					<li><%= link_to 'Categories', categories_path %></li>
-					<li><%= link_to 'Authors', authors_path %></li>
+					<li><%= link_to 'Tarefas', tasks_path %></li>
+					<li><%= link_to 'Categorias', categories_path %></li>
+					<li><%= link_to 'Autores', authors_path %></li>
 					<% end %>
 				</ul>
 			</div>
